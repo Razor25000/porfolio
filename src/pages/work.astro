@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Hero from '../components/Hero.astro';
+import Grid from '../components/Grid.astro';
+
+const projects = (await getCollection('work')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<BaseLayout
+	title = "Mes réalisations | Régis Laffond",
+	description = "Découvrez les derniers projets de Régis Laffond, un développeur web animé par la passion de créer des expériences utilisateurs innovantes. Explorez mon portfolio pour une immersion dans mes contributions au développement web, mettant en lumière ma maîtrise du Front-end et du Back-end.",
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+	title="Mes réalisations"
+	tagline="Découvrez mes projets les plus récents ci-dessous pour vous faire une idée de mon expérience passée."
+	align="start"
+/>
+
+			<Grid variant="offset">
+				{
+					projects.map((project) => (
+						<li>
+							<PortfolioPreview project={project} />
+						</li>
+					))
+				}
+			</Grid>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>

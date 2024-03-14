@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="À propos | Régis Laffond" description="Découvrez Régis Laffond, un développeur web Full Stack dédié à l'élaboration de solutions web innovantes. Maîtrisant React, Node.js, et Symfony, je suis passionné par la conversion des idées en expériences utilisateurs riches et performantes.">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="À propos"
+				tagline="Merci de votre visite. Lisez ce qui suit pour en savoir plus sur moi et mon parcours."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/at_work.jpg"
+					alt="Régis Laffond au travail"
+				/>
+			</Hero>
+
+
+			<section>
+				<h2 class="section-title">Mon parcours</h2>
+				<div class="content">
+					<p>
+						Dès mon plus jeune âge, j'ai été fasciné par l'univers des ordinateurs. En 2015, cette passion m'a naturellement orienté vers le développement web, domaine dans lequel j'ai commencé à apprendre de manière autodidacte le HTML et le CSS. Toutefois, la vie m'a mené vers d'autres horizons jusqu'en 2022, une année marquée par un événement personnel transformateur. La disparition de ma mère m'a poussé à reconsidérer mes choix professionnels et à embrasser pleinement ma vocation initiale de devenir développeur web. J'ai alors suivi une formation intensive de 8 mois, couronnée par l'obtention d'un diplôme de développeur web et web mobile, grâce à un projet ambitieux que j'ai conçu et réalisé de A à Z.
+					</p>
+					
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Projets phares</h2>
+				<div class="content">
+					<p>L'un des projets dont je suis particulièrement fier est la création d'un site e-commerce fictif de vente de montres de luxe. Ce projet a été une véritable aventure, impliquant le développement du back-end avec Node.js, Express, et Mongoose, ainsi que la création d'un back-office en Next.js pour gérer un CRUD des produits. Le front-end a également été réalisé avec Next.js, et le déploiement s'est fait sur Vercel. Ce projet a significativement renforcé mes compétences et ma compréhension du développement web, en m'obligeant à expliquer en détail une grande partie de mon code lors de la soutenance.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Formation continue</h2>
+				<div class="content">
+					<p>Ma formation ne s'est pas arrêtée là. Je continue à me perfectionner et à explorer de nouvelles technologies à travers des chaînes YouTube comme Grafikart et des cours Udemy. Je me concentre particulièrement sur le perfectionnement en Next.js et Symfony, cherchant toujours à pousser plus loin mes limites.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Philosophie de développement</h2>
+				<div class="content">
+					<p>Ma philosophie en développement web est centrée sur la compréhension profonde des enjeux de chaque projet pour y apporter des solutions concrètes et innovantes. Je m'efforce de rester à l'écoute des besoins et de travailler en étroite collaboration avec toutes les parties prenantes pour garantir le succès des missions qui me sont confiées.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Hobbies et bien-être</h2>
+				<div class="content">
+					<p>En dehors du développement web, je suis un passionné de sport, notamment la course à pied et la musculation. Ces activités sont pour moi plus qu'un loisir ; elles constituent une véritable école de la persévérance et de la discipline, des qualités que je mets au service de ma carrière professionnelle. Elles m'aident à maintenir une routine saine, essentielle à mon bien-être et à ma capacité à relever les défis.</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
